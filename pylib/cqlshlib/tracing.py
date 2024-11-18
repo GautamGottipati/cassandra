@@ -41,10 +41,10 @@ def print_trace(shell, trace):
     temp_query = None
     temp_color = None
     if shell.shunted_query_out is not None:
-            temp_query = shell.query_out
-            shell.query_out = shell.shunted_query_out
-            temp_color = shell.color
-            shell.color = shell.shunted_color
+        temp_query = shell.query_out
+        shell.query_out = shell.shunted_query_out
+        temp_color = shell.color
+        shell.color = shell.shunted_color
 
     rows = make_trace_rows(trace)
     if not rows:
@@ -54,8 +54,6 @@ def print_trace(shell, trace):
 
     formatted_names = list(map(shell.myformat_colname, names))
     formatted_values = [list(map(shell.myformat_value, row)) for row in rows]
-
-
 
     shell.writeresult('')
     shell.writeresult('Tracing session: ', color=MAGENTA, newline=False)
@@ -67,7 +65,6 @@ def print_trace(shell, trace):
     if temp_query is not None:
         shell.query_out = temp_query
         shell.color = temp_color
-
 
 
 def make_trace_rows(trace):
