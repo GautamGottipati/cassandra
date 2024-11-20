@@ -1543,9 +1543,7 @@ class Shell(cmd.Cmd):
         To inspect the current capture configuration, use CAPTURE with no
         arguments.
         """
-        fname = parsed.get_binding('fname')
-        if parsed.matched[1][0] == 'identifier' and parsed.matched[1][1].upper() == 'OFF':
-            fname = 'OFF'
+        fname = parsed.get_binding('switch')
 
         if fname is None:
             if self.shunted_query_out is not None:
